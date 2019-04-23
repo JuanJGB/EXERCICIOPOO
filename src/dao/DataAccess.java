@@ -7,6 +7,7 @@ import model.New;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,19 +25,24 @@ public class DataAccess {
     }
 
     public static List<Cliente> getAll(){
-        List<Cliente> ls = new LinkedList<>();
+        List<Cliente> listaClientes = new ArrayList<>();
 
         try {
             ResultSet rs = (ResultSet) DBUtils.getPreparedStatement("select * from cliente").executeQuery();
             while(rs.next()){
-                Cliente cliente = new Cliente(rs.getString(1),rs.getString(2), rs.getString(3));
-                ls.add(cliente);
+                String nome = rs.getString("nome");
+                int id = rs.getInt("idcliente");
+                String rg = rs.getString("rg");
+                String cpf = rs.getString("cpf");
+
+                Cliente cliente = new Cliente(nome, rg, cpf);
+                listaClientes.add(cliente);
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
 
-        return  ls;
+        return  listaClientes;
     }
 
     public static List<Cliente> getNewById(int id){

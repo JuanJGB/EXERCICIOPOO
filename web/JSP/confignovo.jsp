@@ -27,7 +27,7 @@
     DataAccess da = new DataAccess();
     da.addNovo(cliente);
 
-    response.sendRedirect("/web_war_exploded/AllPost.jsp");
+    response.sendRedirect("/web_war_exploded/lista.jsp");
 %>
 
 </body>

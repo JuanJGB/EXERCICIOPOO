@@ -17,14 +17,10 @@
 <div style="width: 1200px; margin-left: auto; margin-right: auto;">
     <table cellpadding="10">
         <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>rg</th>
-            <th>Cpf</th>
+            <a href="cadastro.jsp">Cadastrar Cliente</a>
         </tr>
 
-            <% for (model.Cliente clientes: DataAccess.getAll()
-            ) {
+            <% for (model.Cliente clientes: DataAccess.getAll()) {
             %>
             <tr>
                 <td><%=clientes.getId()%></td>
@@ -32,7 +28,7 @@
                 <td><%=clientes.getRg()%></td>
                 <td><%=clientes.getCpf()%></td>
                 <td>
-                    <a href="edit?id=<%=clientes.getId()%>">Edit</a>
+                    <a href="editar?id=<%=clientes.getId()%>">Edit</a>
                     <a href="deletar">Delete</a>
                 </td>
             </tr>

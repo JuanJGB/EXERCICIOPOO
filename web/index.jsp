@@ -10,16 +10,16 @@
 <h1>Add Novo</h1>
 <div style="width: 900px; margin-left: auto; margin-right: auto";>
     <form action="JSP/confignovo.jsp" method="post">
-        Nome: <br>
-        <label>
+         <br>
+        <label>Nome:
             <input type="text" name="nome_cliente" style="windth:200px">
         </label>
-        RG:<br>
-        <label>
+      <br>
+        <label>  RG:
             <input type="text" name="rg_cliente" style="width: 200px">
         </label>
-        CPF:<br>
-        <label>
+        <br>
+        <label>CPF:
             <input type="text" name="cpf_cliente" style="width: 200px">
         </label>
         <input type="submit" value="Submit">
