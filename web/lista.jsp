@@ -40,8 +40,8 @@
                 <td><%=clientes.getCpf()%>
                 </td>
                 <td>
-                    <a href="editar.jsp?id="<%=clientes.getId()%>">Edit</a>
-                    <a href="/deletar?id="<%=clientes.getId()%>">Delete</a>
+                    <a href="editar.jsp">Editar</a>
+                    <a >Deletar</a>
                 </td>
             </tr>
             <%}%>
