@@ -27,7 +27,7 @@ public class EditPost extends HttpServlet {
         String idTemp = request.getParameter("id");
         int id = Integer.parseInt(idTemp);
         request.setAttribute("getNewsById", DataAccess.getNewById(id));
-        RequestDispatcher rd = request.getRequestDispatcher("EditPost.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("editar.jsp");
         try {
             rd.forward(request, response);
         } catch (ServletException | IOException ex) {

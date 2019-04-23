@@ -16,8 +16,8 @@ public class DataAccess {
             PreparedStatement ps = DBUtils.getPreparedStatement("insert into cliente (nome, rg, cpf) values(?,?, ?)");
             ps.setString(1, cliente.getNome());
             ps.setString(2, cliente.getRg());
-            ps.setString(2, cliente.getCpf());
-            ps.executeUpdate();
+            ps.setString(3, cliente.getCpf());
+            ps.execute();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
@@ -39,15 +39,15 @@ public class DataAccess {
         return  ls;
     }
 
-    public static List<New> getNewById(int id){
-        List<New> ls = new LinkedList<>();
-        String sql = "select *from usuario where id = " + id;
+    public static List<Cliente> getNewById(int id){
+        List<Cliente> ls = new LinkedList<>();
+        String sql = "select *from cliente where idcliente = " + id;
 
         try {
             ResultSet rs = DBUtils.getPreparedStatement("select * from usuario").executeQuery();
             while (rs.next()){
-                New n = new New(rs.getInt(1), rs.getString(2),rs.getInt(3));
-                ls.add(n);
+                Cliente cliente = new Cliente(rs.getString(1),rs.getString(2), rs.getString(3));
+                ls.add(cliente);
             }
 
         } catch (SQLException e) {
@@ -60,15 +60,19 @@ public class DataAccess {
         return ls;
     }
 
-    public void edit (int id, String nome, int idade){
-        String sql = "update usuario set nome = ?, idade=?" + "where id = ?";
-        PreparedStatement ps;
-        try {
-            ps = DBUtils.getPreparedStatement(sql);
-            ps.setString(1, nome);
-            ps.setInt(2,idade);
-            ps.setInt(3,id);
+    public static void edit (Cliente cliente){
 
+        try {
+            String sql = "UPDATE INTO pizzaria.cliente  SEt nome = ?, rg = ?, cpf = ? where idcliente = ?) VALUES (?,?,?))";
+
+            PreparedStatement st = DBUtils.getPreparedStatement((sql));
+
+            st.setString(1, cliente.getNome());
+            st.setString(2, cliente.getRg());
+            st.setString(3, cliente.getCpf());
+            st.execute();
+            st.close();
+            ResultSet rs = DBUtils.getPreparedStatement("select * from usuario").executeQuery();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -76,7 +80,7 @@ public class DataAccess {
         }
     }
 
-    public void delete(int id ){
+    public static void delete(int id ){
         try {
             String sql = "delete usuario where id = ?";
             PreparedStatement ps = DBUtils.getPreparedStatement(sql);

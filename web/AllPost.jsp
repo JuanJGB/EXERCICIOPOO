@@ -32,8 +32,8 @@
                 <td><%=clientes.getRg()%></td>
                 <td><%=clientes.getCpf()%></td>
                 <td>
-                    <a href="edit?id=<%= clientes.getId()%>">Edit</a>
-                    <a href="delete?id=<%= clientes.getId()%>">Delete</a>
+                    <a href="edit?id=<%=clientes.getId()%>">Edit</a>
+                    <a href="deletar">Delete</a>
                 </td>
             </tr>
             <%}%>
