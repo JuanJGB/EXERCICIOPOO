@@ -26,16 +26,16 @@ public class DataAccess {
 
     public static List<Cliente> getAll(){
         List<Cliente> listaClientes = new ArrayList<>();
-
         try {
-            ResultSet rs = (ResultSet) DBUtils.getPreparedStatement("select * from cliente").executeQuery();
+            ResultSet rs = DBUtils.getPreparedStatement("select * from cliente").executeQuery();
             while(rs.next()){
-                String nome = rs.getString("nome");
                 int id = rs.getInt("idcliente");
+                String nome = rs.getString("nome");
                 String rg = rs.getString("rg");
                 String cpf = rs.getString("cpf");
 
                 Cliente cliente = new Cliente(nome, rg, cpf);
+                cliente.setId(id);
                 listaClientes.add(cliente);
             }
         } catch (ClassNotFoundException | SQLException e) {
