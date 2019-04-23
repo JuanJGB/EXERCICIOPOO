@@ -14,7 +14,7 @@ import java.util.List;
 public class DataAccess {
     public void addNovo(Cliente cliente){
         try {
-            PreparedStatement ps = DBUtils.getPreparedStatement("insert into cliente (nome, rg, cpf) values(?,?, ?)");
+            PreparedStatement ps = DBUtils.getPreparedStatement("insert into pizzaria.cliente (nome, rg, cpf) values(?,?,?)");
             ps.setString(1, cliente.getNome());
             ps.setString(2, cliente.getRg());
             ps.setString(3, cliente.getCpf());
@@ -50,7 +50,7 @@ public class DataAccess {
         String sql = "select *from cliente where idcliente = " + id;
 
         try {
-            ResultSet rs = DBUtils.getPreparedStatement("select * from usuario").executeQuery();
+            ResultSet rs = DBUtils.getPreparedStatement("select * from cliente").executeQuery();
             while (rs.next()){
                 Cliente cliente = new Cliente(rs.getString(1),rs.getString(2), rs.getString(3));
                 ls.add(cliente);
@@ -78,7 +78,7 @@ public class DataAccess {
             st.setString(3, cliente.getCpf());
             st.execute();
             st.close();
-            ResultSet rs = DBUtils.getPreparedStatement("select * from usuario").executeQuery();
+            ResultSet rs = DBUtils.getPreparedStatement("select * from cliente").executeQuery();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {

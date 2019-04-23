@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h1>Add Novo</h1>
+<h1>Cadastrar Cliente</h1>
 <div style="width: 900px; margin-left: auto; margin-right: auto";>
     <form action="JSP/confignovo.jsp" method="post">
          <br>

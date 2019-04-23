@@ -11,7 +11,7 @@
     <title>Edit</title>
 </head>
 <body>
-<h1>Edit News</h1>
+<h1>Editar</h1>
 <div style="width: 900px; margin-left: auto; margin-right: auto">
     <c:forEach items="${getNewsById}" var="p">
         <form action="JSP/configedit.jsp" method="post">

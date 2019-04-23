@@ -11,38 +11,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
+    <title>lista</title>
 </head>
 <body>
 <div style="width: 1200px; margin-left: auto; margin-right: auto;">
     <table cellpadding="10">
         <tr>
+            <h1>Lista de Clientes</h1>
             <a href="index.jsp">Cadastrar Cliente</a>
         </tr>
 
         <% for (model.Cliente clientes : DataAccess.getAll()) {
 
         %>
-        <th>Id</th>
-        <th>Nome</th>
-        <th>RG</th>
-        <th>CPF</th>
-        <th></th>
-        <tr>
-            <td><%=clientes.getId()%>
-            </td>
-            <td><%=clientes.getNome()%>
-            </td>
-            <td><%=clientes.getRg()%>
-            </td>
-            <td><%=clientes.getCpf()%>
-            </td>
-            <td>
-                <a href="editar?id=<%=clientes.getId()%>">Edit</a>
-                <a href="deletar">Delete</a>
-            </td>
-        </tr>
-        <%}%>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>RG</th>
+            <th>CPF</th>
+            <th></th>
+
+            <tr>
+                <td><%=clientes.getId()%>
+                </td>
+                <td><%=clientes.getNome()%>
+                </td>
+                <td><%=clientes.getRg()%>
+                </td>
+                <td><%=clientes.getCpf()%>
+                </td>
+                <td>
+                    <a href="editar.jsp?id="<%=clientes.getId()%>">Edit</a>
+                    <a href="/deletar?id="<%=clientes.getId()%>">Delete</a>
+                </td>
+            </tr>
+            <%}%>
 
     </table>
 </div>
