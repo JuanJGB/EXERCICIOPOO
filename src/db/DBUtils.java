@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class DBUtils {
     public static PreparedStatement getPreparedStatement(String sql)throws ClassNotFoundException, SQLException {
         PreparedStatement ps = null;
-        String url = "jdbc:mysql://localhost:3306/pizzaria?autoReconnect=true&verifyServerCertificate=false&useSSL=true";
+        String url = "jdbc:mysql://localhost:3306/pizzaria?useTimezone=true&serverTimezone=America/Sao_Paulo&autoReconnect=true&verifyServerCertificate=false&useSSL=true";
         String user = "root";
         String pass = "";
 

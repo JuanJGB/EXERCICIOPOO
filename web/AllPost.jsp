@@ -29,11 +29,11 @@
             <tr>
                 <td><%=clientes.getId()%></td>
                 <td><%=clientes.getNome()%></td>
-                <td><%=clientes.getRg()%>...</td>
-                <td>$<%=clientes.getCpf()%>...</td>
+                <td><%=clientes.getRg()%></td>
+                <td><%=clientes.getCpf()%></td>
                 <td>
                     <a href="edit?id=<%= clientes.getId()%>">Edit</a>
-                    <a href="delete?id=${p.id}">Delete</a>
+                    <a href="delete?id=<%= clientes.getId()%>">Delete</a>
                 </td>
             </tr>
             <%}%>
